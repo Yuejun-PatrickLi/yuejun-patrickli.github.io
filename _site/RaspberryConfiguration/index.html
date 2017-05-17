@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Raspberry Pi 树莓派3初始设置+远程控制 – Li Yuejun(Patrick) – Programmer, Engineer, Data Scientist</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="刚入手树莓派3
+
+
+" />
+    <meta property="og:description" content="刚入手树莓派3
+
+
+" />
+    
+    <meta name="author" content="Li Yuejun(Patrick)" />
+
+    
+    <meta property="og:title" content="Raspberry Pi 树莓派3初始设置+远程控制" />
+    <meta property="twitter:title" content="Raspberry Pi 树莓派3初始设置+远程控制" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="Li Yuejun(Patrick) - Programmer, Engineer, Data Scientist" href="/feed.xml" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+    
+    
+    <div class="intro-header">    
+      <div class="container">
+        <div class="post-heading">
+            <h1>Raspberry Pi 树莓派3初始设置+远程控制</h1>
+            <span class="meta">Posted by <a href="/about">Li Yuejun(Patrick)
+            </a> on May 11, 2017
+            <a href="/"> { Return to Blog }</a>
+            </span>
+        </div>
+            
+      </div>
+    </div>
+    
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+ <div class="space-extra-small">
+ </div>
+
+  <div class="entry">
+    <p><em>刚入手树莓派3</em>
+<img src="../images/2017/0511-1.jpg" alt="" /></p>
+
+<h2 id="准备工作">准备工作</h2>
+<h3 id="1-使用win32-disk-imager向sd卡写入rapsbian系统">1. 使用win32 disk imager向sd卡写入rapsbian系统</h3>
+<p><img src="../images/2017/0511-2.png" alt="" /></p>
+
+<p>将sd卡插入树莓派
+注意是插入背面sd卡槽，不要使用usb转换器连接sd卡。
+事实上，我第一次就是使用usb连接sd卡，结果树莓派运行不了，还检查了好久。。。。囧
+<img src="../images/2017/0511-3.jpg" alt="" /></p>
+<h3 id="2-连接电脑">2. 连接电脑</h3>
+<p>第一次连接必须连接显示器或通过网线连接电脑，即有介质连接方式。目的是使树莓派第一次联网
+网线连接需要通过命令行来更改设置，而连接显示器可以通过图形界面直接操作树莓派系统，比较直观，推荐连接显示器进行初始设置。
+以后可以通过显示器、网线、wifi三种方式</p>
+
+<h2 id="树莓派基本设置">树莓派基本设置</h2>
+<p>插好电源线和hdmi
+红灯表示电源连接，黄灯表示系统正在运行
+<img src="../images/2017/0511-5.jpg" alt="" /></p>
+
+<p>打开显示器，注意一开始可能没有显示，多插拔几次电源重启系统。如果还没有图像，请自行百度解决方案。</p>
+
+<p>本人没有遇到这个问题，所以不列解决方案</p>
+
+<p><img src="../images/2017/0511-4.png" alt="" />
+<img src="../images/2017/0511-6.jpg" alt="" /></p>
+
+<p>系统设置里点change password修改密码。需要6位以上复杂密码，包括字母。
+初始密码 raspberry  默认用户名 pi</p>
+
+<p><img src="../images/2017/0511-7.jpg" alt="" /></p>
+
+<p>接口设置，打开要使用的服务，建议打开VNC，方便后面使用VNC软件在个人电脑上进行操作</p>
+
+<p>在localisation中检查keyboard， 设置为United States -》 english。</p>
+
+<p><strong>如果语言设置不正确，有可能在后面的修改网络配置文件时造成整个wifi服务失效</strong></p>
+
+<h2 id="wifi连接设置">wifi连接设置</h2>
+<p><strong>目的是开启树莓派后能自动连接之前配置记录好的wifi</strong></p>
+
+<p>命令行输入：</p>
+
+<p><code class="highlighter-rouge">sudo su </code>（进入root模式）</p>
+
+<p><code class="highlighter-rouge">sudo editor /etc/wpa_supplicant/wpa_supplicant.conf</code>
+打开编辑wifi配置文件，末尾添加以下语句：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Network={
+	ssid = "wifi-name"
+	psk = "password"
+}
+</code></pre>
+</div>
+<p>注意有些特殊网络使用其他加密方式，需要使用其他设置语句，请自行百度</p>
+
+<h2 id="远程控制">远程控制</h2>
+<h3 id="a-网线连接电脑">a. 网线连接电脑</h3>
+<p>此方法电脑需要连接到网络。</p>
+
+<p>打开网络共享中心</p>
+
+<p><img src="../images/2017/0511-8.png" alt="" /></p>
+
+<p>未识别网络即为树莓派网络，点击以太网查看信息</p>
+
+<p>在更改适配器设置中，将连网的wifi共享给树莓派网络连接</p>
+
+<p><img src="../images/2017/0511-9.png" alt="" /></p>
+
+<p>查看树莓派连接的详细信息，记住ipv4地址</p>
+
+<p><img src="../images/2017/0511-10.png" alt="" /></p>
+
+<p>打开cmd，输入 <code class="highlighter-rouge">arp -a</code></p>
+
+<p><img src="../images/2017/0511-11.png" alt="" /></p>
+
+<p>找到刚才记录的ipv4地址字段（192.168.137.x），若找不到树莓派ip（无同字段192.168.137.x），则需要设置静态ip地址。</p>
+
+<p>重新将树莓派sd卡插入电脑，打开文件夹，修改cmdline.txt文件。</p>
+
+<p>在最前端加上ip设置，注意设置同一网段192.168.137.x</p>
+
+<p>修改后sd卡重新插回树莓派。启动，连网完毕后，重新查看接口信息</p>
+
+<h3 id="b-使用ssh远程控制">b. 使用ssh远程控制</h3>
+<p>使用ssh工具登录树莓派，默认用户名ip，默认密码raspberry</p>
+
+<p>windows下可以使用putty</p>
+
+<p><img src="../images/2017/0511-12.png" alt="" />
+<img src="../images/2017/0511-13.png" alt="" /></p>
+
+<p>如果是第一次登录树莓派系统，输入 <code class="highlighter-rouge">sudo ifconfig wlan() up</code> 开启无线网卡</p>
+
+<p>之后类似步骤，修改网络配置文件</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo su
+sudo editor /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre>
+</div>
+<h3 id="c-使用windows远程桌面控制树莓派">c. 使用windows远程桌面控制树莓派</h3>
+<p><strong>准备工作：</strong>
+在树莓派中安装服务xrdp。命令行输入：<code class="highlighter-rouge">sudo apt-get install xrdp</code>。连网后使用ifconfig查看网络信息，并记录树莓派ip地址</p>
+
+<p><img src="../images/2017/0511-14.png" alt="" /></p>
+
+<p>记住ip地址，打开远程桌面</p>
+
+<p><img src="../images/2017/0511-15.png" alt="" />
+<img src="../images/2017/0511-16.png" alt="" /></p>
+
+<p>输入密码，连接。</p>
+
+<p><img src="../images/2017/0511-17.png" alt="" /></p>
+
+<p>可能出现如图login成功，connecting失败的情况。</p>
+
+<p><strong>解决方案：</strong> 在树莓派输入<code class="highlighter-rouge">sudo apt-get install tightvncserver</code>并重启树莓派
+远程桌面连接成功
+<img src="../images/2017/0511-17.png" alt="" /></p>
+
+<p><strong>到此为止，SSH控制，远程桌面控制均已成功。以后有时间再试一下vnc远程控制</strong></p>
+
+  </div>
+
+  
+</article>
+
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+            <div class="svg-icon">
+          
+<a href="mailto:patricklyj@gmail.com"><i class="icon-envelope icon-2x"></i></a>
+
+
+<a href="https://github.com/Yuejun-PatrickLi"><i class="icon-github icon-2x"></i></a>
+
+
+
+
+
+
+
+
+
+            </div>
+        </footer>
+      </div>
+    </div>
+
+
+    
+
+  </body>
+</html>

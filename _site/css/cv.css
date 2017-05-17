@@ -1,0 +1,70 @@
+#avatar {
+  width: 256px;
+  height: 256px;
+  border: 10px solid silver;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%; }
+
+#name {
+  margin: 0.5em 0; }
+  
+#info {
+	float:right;
+	font-size:0.2em;
+	color:white;
+	height:0;
+	margin-right:1em;
+}
+.reveal .title {
+  margin-bottom: 1.1em; }
+
+.reveal .date {
+  color: #ccc; 
+  }
+
+.imgleft {
+  height: 240px;
+  float: left; }
+
+.pfloat {
+  overflow: hidden; }
+
+.pfloat p {
+  padding-left: 20px; }
+
+.clearfix {
+  overflow: hidden; }
+  
+.reveal .clearfix ul{
+	margin-left:1.25em; }
+	
+.reveal ul li{
+	text-align:left;
+}
+
+.reveal .l1 {
+  font-size: 2em; }
+
+.reveal .l2 {
+  font-size: 1.5em; }
+
+.reveal .l3 {
+  font-size: 1.2em; }
+
+.reveal .l4 {
+  font-size: 1em; }
+
+.reveal .l5 {
+  font-size: 0.7em; }
+
+.reveal .l6 {
+  font-size: 0.5em; }
+
+.reveal ul {
+  font-size: 0.7em; }
+  
+.reveal .controls .navigate-left{
+	border-right-color：gray;
+}

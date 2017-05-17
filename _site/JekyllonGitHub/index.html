@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jekyll初步搭建GitHub个人博客 – Li Yuejun(Patrick) – Programmer, Engineer, Data Scientist</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="对比 Jekyll, Hexo, Hugo等热门解析工具
+截止到2017/5/14 ， github上star和folk分别为:
+
+" />
+    <meta property="og:description" content="对比 Jekyll, Hexo, Hugo等热门解析工具
+截止到2017/5/14 ， github上star和folk分别为:
+
+" />
+    
+    <meta name="author" content="Li Yuejun(Patrick)" />
+
+    
+    <meta property="og:title" content="Jekyll初步搭建GitHub个人博客" />
+    <meta property="twitter:title" content="Jekyll初步搭建GitHub个人博客" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="Li Yuejun(Patrick) - Programmer, Engineer, Data Scientist" href="/feed.xml" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+    
+    
+    <div class="intro-header">    
+      <div class="container">
+        <div class="post-heading">
+            <h1>Jekyll初步搭建GitHub个人博客</h1>
+            <span class="meta">Posted by <a href="/about">Li Yuejun(Patrick)
+            </a> on May 14, 2017
+            <a href="/"> { Return to Blog }</a>
+            </span>
+        </div>
+            
+      </div>
+    </div>
+    
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+ <div class="space-extra-small">
+ </div>
+
+  <div class="entry">
+    <h2 id="对比-jekyll-hexo-hugo等热门解析工具">对比 Jekyll, Hexo, Hugo等热门解析工具</h2>
+<p>截止到2017/5/14 ， github上star和folk分别为:</p>
+
+<p>Jekyll 29.7k/6.61k</p>
+
+<p>Hugo 17k/2.41k</p>
+
+<p>Hexo 16.2k/2.49k</p>
+
+<p>考虑到搭建个人博客比较重要的是轻量，可定制，以及相关技术支持（如语法、bug、设计等等）
+虽然Ruby编译速度比go和nodejs慢，但是在个人博文数量不多的情况下完全可以忽视。因此，最终决定选择Jekyll搭建个人第一个静态博客</p>
+<h2 id="搭建过程">搭建过程</h2>
+<h3 id="1-安装本地jekyll">1. 安装本地Jekyll</h3>
+<h4 id="a-安装ruby">a. 安装Ruby</h4>
+<p><em>为什么需要Ruby</em>：</p>
+
+<p>Jekyll 是 基于 Ruby 的解析引擎， 能够将模板、markdown等文件转换为“静态网页”
+需要搭建Ruby环境，来支持Jekyll运行</p>
+
+<p><em>如何安装Ruby</em>：</p>
+
+<p>i. Ruby官网下载对应版本
+https://www.ruby-lang.org/en/downloads/</p>
+
+<p>ii. windows新手推荐使用RubyInstaller，官方安装工具，一键式解决路径配置 rubyinstaller.org 下载。
+安装完毕后，打开cmd，输入<code class="highlighter-rouge">ruby -v</code>查看</p>
+
+<p><img src="../images/2017/0514-1.png" alt="" /></p>
+
+<p>如图，显示版本则安装成功</p>
+
+<h4 id="b-安装rubygems">b. 安装RubyGems</h4>
+<p><em>为什么需要RubyGems</em>：</p>
+
+<p>RubyGems是Ruby的包管理系统，使用它可以方便安装、查看、修改Ruby应用</p>
+
+<p><em>如何安装RubyGems</em>：</p>
+
+<p>首先到官网下载
+http://rubygems.org/pages/download</p>
+
+<p>解压文件,打开cmd使用<code class="highlighter-rouge">cd</code>命令进入解压出的文件夹
+输入 <code class="highlighter-rouge">ruby setup.rb</code> 进行安装</p>
+
+<h4 id="c-使用rubygems安装jekyll">c. 使用RubyGems安装Jekyll</h4>
+<p>cmd输入<code class="highlighter-rouge">gem install jekyll</code></p>
+
+<p><strong>到此为止，本地Jekyll安装成功，接下来开始搭建博客</strong></p>
+
+<h3 id="2-搭建本地个人博客">2. 搭建本地个人博客</h3>
+<h4 id="a-步骤">a. 步骤</h4>
+<p>命令行 <code class="highlighter-rouge">cd</code> 进入想要创建blog的目录下输入
+  <code class="highlighter-rouge">Jekyll new yourblogname</code>
+  可以看见此时新建了一个名为yourblogname的文件夹，里面已经初始化好了jekyll所需的所有文件</p>
+
+<p><code class="highlighter-rouge">cd yourblogname</code></p>
+
+<p><code class="highlighter-rouge">jekyll serve</code></p>
+
+<p>成功开启jekyll本地服务服务器。</p>
+
+<p>如果已经写好了网页，只需要在放置网页的目录下运行<code class="highlighter-rouge">jekyll serve</code></p>
+<h4 id="b-可能出现的问题">b. 可能出现的问题</h4>
+<p><strong><em>如图 :</em></strong>
+<img src="../images/2017/0514-2.png" alt="" />
+<img src="../images/2017/0514-3.png" alt="" />
+类似问题有一个共同特征:<code class="highlighter-rouge">'cannot load such file -- xxx'</code></p>
+
+<p>解决办法非常简单，输入<code class="highlighter-rouge">gem install xxx</code>, xxx 是无法加载的文件。安装缺少的文件后就可以正常运行了</p>
+
+<p><strong><em>出现 <code class="highlighter-rouge">Syntax error: Invalid GBK character</code> :</em></strong></p>
+
+<p>找到 Ruby 的安装目录，里面也有sass模块，如这个路径：
+<code class="highlighter-rouge">C:\Ruby21-x64\lib\ruby\gems\2.1.0\gems\sass-3.4.8\lib\sass</code></p>
+
+<p>在该路径文件里面 engine.rb，添加一行代码（放在所有的require XXXX 之后即可）：</p>
+
+<p><code class="highlighter-rouge">require ...</code></p>
+
+<p><code class="highlighter-rouge">require 'sass/supports'</code></p>
+
+<p><code class="highlighter-rouge">Encoding.default_external = Encoding.find('utf-8')</code></p>
+<h3 id="3运行博客">3.运行博客</h3>
+<h4 id="a-打开本地博客">a. 打开本地博客</h4>
+<p>浏览器地址栏输入<code class="highlighter-rouge">localhost:4000</code>即可浏览初始化文件。</p>
+
+<p>如果无法打开网页，请检查_config.yml文件里<code class="highlighter-rouge">baseurl</code>的值。删除<code class="highlighter-rouge">baseurl</code>或输入此地址</p>
+
+<p>此时已经可以修改定制属于你自己的网页文件了</p>
+<h4 id="b-布置到github">b. 布置到github</h4>
+<p>相关git安装配置及使用不再重复，请自行百度google</p>
+
+<p><em>jekyll解析流程图</em>
+<img src="../images/2017/0514-4.png" alt="" />
+<img src="../images/2017/0514-5.png" alt="" />
+github上建立一个名为 <code class="highlighter-rouge">yourname.github.io</code>的repo</p>
+
+<p>github在检测到io后缀的repo时，会自动加载pages服务，并用jekyll解析文件</p>
+
+<p>将repo克隆到本地，把之前建立的blog文件夹里所有文件转移到此目录下，push到github上，等待数分钟GitHub更新缓存。
+在浏览器地址栏输入yourname.github.io，即可欣赏新鲜出炉的个人博客了</p>
+
+<h2 id="后续">后续</h2>
+<p>接下来准备进一步了解jekyll的使用，比如全局配置，变量使用等等</p>
+
+  </div>
+
+  
+</article>
+
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+            <div class="svg-icon">
+          
+<a href="mailto:patricklyj@gmail.com"><i class="icon-envelope icon-2x"></i></a>
+
+
+<a href="https://github.com/Yuejun-PatrickLi"><i class="icon-github icon-2x"></i></a>
+
+
+
+
+
+
+
+
+
+            </div>
+        </footer>
+      </div>
+    </div>
+
+
+    
+
+  </body>
+</html>

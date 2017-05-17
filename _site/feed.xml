@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-18T03:21:09+08:00</updated><id>http://localhost:4000/</id><title type="html">YjL</title><subtitle>Programmer, Engineer, Data Scientist</subtitle><entry><title type="html">Jekyll初步搭建GitHub个人博客</title><link href="http://localhost:4000/JekyllonGitHub/" rel="alternate" type="text/html" title="Jekyll初步搭建GitHub个人博客" /><published>2017-05-14T15:06:00+08:00</published><updated>2017-05-14T15:06:00+08:00</updated><id>http://localhost:4000/JekyllonGitHub</id><content type="html" xml:base="http://localhost:4000/JekyllonGitHub/">&lt;h2 id=&quot;对比-jekyll-hexo-hugo等热门解析工具&quot;&gt;对比 Jekyll, Hexo, Hugo等热门解析工具&lt;/h2&gt;
+&lt;p&gt;截止到2017/5/14 ， github上star和folk分别为:&lt;/p&gt;
+
+&lt;p&gt;Jekyll 29.7k/6.61k&lt;/p&gt;
+
+&lt;p&gt;Hugo 17k/2.41k&lt;/p&gt;
+
+&lt;p&gt;Hexo 16.2k/2.49k&lt;/p&gt;
+
+&lt;p&gt;考虑到搭建个人博客比较重要的是轻量，可定制，以及相关技术支持（如语法、bug、设计等等）
+虽然Ruby编译速度比go和nodejs慢，但是在个人博文数量不多的情况下完全可以忽视。因此，最终决定选择Jekyll搭建个人第一个静态博客&lt;/p&gt;
+&lt;h2 id=&quot;搭建过程&quot;&gt;搭建过程&lt;/h2&gt;
+&lt;h3 id=&quot;1-安装本地jekyll&quot;&gt;1. 安装本地Jekyll&lt;/h3&gt;
+&lt;h4 id=&quot;a-安装ruby&quot;&gt;a. 安装Ruby&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;为什么需要Ruby&lt;/em&gt;：&lt;/p&gt;
+
+&lt;p&gt;Jekyll 是 基于 Ruby 的解析引擎， 能够将模板、markdown等文件转换为“静态网页”
+需要搭建Ruby环境，来支持Jekyll运行&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;如何安装Ruby&lt;/em&gt;：&lt;/p&gt;
+
+&lt;p&gt;i. Ruby官网下载对应版本
+https://www.ruby-lang.org/en/downloads/&lt;/p&gt;
+
+&lt;p&gt;ii. windows新手推荐使用RubyInstaller，官方安装工具，一键式解决路径配置 rubyinstaller.org 下载。
+安装完毕后，打开cmd，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;ruby -v&lt;/code&gt;查看&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0514-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如图，显示版本则安装成功&lt;/p&gt;
+
+&lt;h4 id=&quot;b-安装rubygems&quot;&gt;b. 安装RubyGems&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;为什么需要RubyGems&lt;/em&gt;：&lt;/p&gt;
+
+&lt;p&gt;RubyGems是Ruby的包管理系统，使用它可以方便安装、查看、修改Ruby应用&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;如何安装RubyGems&lt;/em&gt;：&lt;/p&gt;
+
+&lt;p&gt;首先到官网下载
+http://rubygems.org/pages/download&lt;/p&gt;
+
+&lt;p&gt;解压文件,打开cmd使用&lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt;命令进入解压出的文件夹
+输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;ruby setup.rb&lt;/code&gt; 进行安装&lt;/p&gt;
+
+&lt;h4 id=&quot;c-使用rubygems安装jekyll&quot;&gt;c. 使用RubyGems安装Jekyll&lt;/h4&gt;
+&lt;p&gt;cmd输入&lt;code class=&quot;highlighter-rouge&quot;&gt;gem install jekyll&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;到此为止，本地Jekyll安装成功，接下来开始搭建博客&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-搭建本地个人博客&quot;&gt;2. 搭建本地个人博客&lt;/h3&gt;
+&lt;h4 id=&quot;a-步骤&quot;&gt;a. 步骤&lt;/h4&gt;
+&lt;p&gt;命令行 &lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; 进入想要创建blog的目录下输入
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll new yourblogname&lt;/code&gt;
+  可以看见此时新建了一个名为yourblogname的文件夹，里面已经初始化好了jekyll所需的所有文件&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd yourblogname&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;成功开启jekyll本地服务服务器。&lt;/p&gt;
+
+&lt;p&gt;如果已经写好了网页，只需要在放置网页的目录下运行&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&quot;b-可能出现的问题&quot;&gt;b. 可能出现的问题&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;如图 :&lt;/em&gt;&lt;/strong&gt;
+&lt;img src=&quot;../images/2017/0514-2.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;../images/2017/0514-3.png&quot; alt=&quot;&quot; /&gt;
+类似问题有一个共同特征:&lt;code class=&quot;highlighter-rouge&quot;&gt;'cannot load such file -- xxx'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;解决办法非常简单，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;gem install xxx&lt;/code&gt;, xxx 是无法加载的文件。安装缺少的文件后就可以正常运行了&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;出现 &lt;code class=&quot;highlighter-rouge&quot;&gt;Syntax error: Invalid GBK character&lt;/code&gt; :&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;找到 Ruby 的安装目录，里面也有sass模块，如这个路径：
+&lt;code class=&quot;highlighter-rouge&quot;&gt;C:\Ruby21-x64\lib\ruby\gems\2.1.0\gems\sass-3.4.8\lib\sass&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;在该路径文件里面 engine.rb，添加一行代码（放在所有的require XXXX 之后即可）：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;require ...&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;require 'sass/supports'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Encoding.default_external = Encoding.find('utf-8')&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3运行博客&quot;&gt;3.运行博客&lt;/h3&gt;
+&lt;h4 id=&quot;a-打开本地博客&quot;&gt;a. 打开本地博客&lt;/h4&gt;
+&lt;p&gt;浏览器地址栏输入&lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;即可浏览初始化文件。&lt;/p&gt;
+
+&lt;p&gt;如果无法打开网页，请检查_config.yml文件里&lt;code class=&quot;highlighter-rouge&quot;&gt;baseurl&lt;/code&gt;的值。删除&lt;code class=&quot;highlighter-rouge&quot;&gt;baseurl&lt;/code&gt;或输入此地址&lt;/p&gt;
+
+&lt;p&gt;此时已经可以修改定制属于你自己的网页文件了&lt;/p&gt;
+&lt;h4 id=&quot;b-布置到github&quot;&gt;b. 布置到github&lt;/h4&gt;
+&lt;p&gt;相关git安装配置及使用不再重复，请自行百度google&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;jekyll解析流程图&lt;/em&gt;
+&lt;img src=&quot;../images/2017/0514-4.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;../images/2017/0514-5.png&quot; alt=&quot;&quot; /&gt;
+github上建立一个名为 &lt;code class=&quot;highlighter-rouge&quot;&gt;yourname.github.io&lt;/code&gt;的repo&lt;/p&gt;
+
+&lt;p&gt;github在检测到io后缀的repo时，会自动加载pages服务，并用jekyll解析文件&lt;/p&gt;
+
+&lt;p&gt;将repo克隆到本地，把之前建立的blog文件夹里所有文件转移到此目录下，push到github上，等待数分钟GitHub更新缓存。
+在浏览器地址栏输入yourname.github.io，即可欣赏新鲜出炉的个人博客了&lt;/p&gt;
+
+&lt;h2 id=&quot;后续&quot;&gt;后续&lt;/h2&gt;
+&lt;p&gt;接下来准备进一步了解jekyll的使用，比如全局配置，变量使用等等&lt;/p&gt;</content><author><name></name></author><category term="Jekyll" /><summary type="html">对比 Jekyll, Hexo, Hugo等热门解析工具 截止到2017/5/14 ， github上star和folk分别为:</summary></entry><entry><title type="html">Raspberry Pi 树莓派3初始设置+远程控制</title><link href="http://localhost:4000/RaspberryConfiguration/" rel="alternate" type="text/html" title="Raspberry Pi 树莓派3初始设置+远程控制" /><published>2017-05-11T19:49:00+08:00</published><updated>2017-05-11T19:49:00+08:00</updated><id>http://localhost:4000/RaspberryConfiguration</id><content type="html" xml:base="http://localhost:4000/RaspberryConfiguration/">&lt;p&gt;&lt;em&gt;刚入手树莓派3&lt;/em&gt;
+&lt;img src=&quot;../images/2017/0511-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;准备工作&quot;&gt;准备工作&lt;/h2&gt;
+&lt;h3 id=&quot;1-使用win32-disk-imager向sd卡写入rapsbian系统&quot;&gt;1. 使用win32 disk imager向sd卡写入rapsbian系统&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;将sd卡插入树莓派
+注意是插入背面sd卡槽，不要使用usb转换器连接sd卡。
+事实上，我第一次就是使用usb连接sd卡，结果树莓派运行不了，还检查了好久。。。。囧
+&lt;img src=&quot;../images/2017/0511-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-连接电脑&quot;&gt;2. 连接电脑&lt;/h3&gt;
+&lt;p&gt;第一次连接必须连接显示器或通过网线连接电脑，即有介质连接方式。目的是使树莓派第一次联网
+网线连接需要通过命令行来更改设置，而连接显示器可以通过图形界面直接操作树莓派系统，比较直观，推荐连接显示器进行初始设置。
+以后可以通过显示器、网线、wifi三种方式&lt;/p&gt;
+
+&lt;h2 id=&quot;树莓派基本设置&quot;&gt;树莓派基本设置&lt;/h2&gt;
+&lt;p&gt;插好电源线和hdmi
+红灯表示电源连接，黄灯表示系统正在运行
+&lt;img src=&quot;../images/2017/0511-5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;打开显示器，注意一开始可能没有显示，多插拔几次电源重启系统。如果还没有图像，请自行百度解决方案。&lt;/p&gt;
+
+&lt;p&gt;本人没有遇到这个问题，所以不列解决方案&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-4.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;../images/2017/0511-6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;系统设置里点change password修改密码。需要6位以上复杂密码，包括字母。
+初始密码 raspberry  默认用户名 pi&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接口设置，打开要使用的服务，建议打开VNC，方便后面使用VNC软件在个人电脑上进行操作&lt;/p&gt;
+
+&lt;p&gt;在localisation中检查keyboard， 设置为United States -》 english。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;如果语言设置不正确，有可能在后面的修改网络配置文件时造成整个wifi服务失效&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;wifi连接设置&quot;&gt;wifi连接设置&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;目的是开启树莓派后能自动连接之前配置记录好的wifi&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;命令行输入：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo su &lt;/code&gt;（进入root模式）&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo editor /etc/wpa_supplicant/wpa_supplicant.conf&lt;/code&gt;
+打开编辑wifi配置文件，末尾添加以下语句：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Network={
+	ssid = &quot;wifi-name&quot;
+	psk = &quot;password&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;注意有些特殊网络使用其他加密方式，需要使用其他设置语句，请自行百度&lt;/p&gt;
+
+&lt;h2 id=&quot;远程控制&quot;&gt;远程控制&lt;/h2&gt;
+&lt;h3 id=&quot;a-网线连接电脑&quot;&gt;a. 网线连接电脑&lt;/h3&gt;
+&lt;p&gt;此方法电脑需要连接到网络。&lt;/p&gt;
+
+&lt;p&gt;打开网络共享中心&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;未识别网络即为树莓派网络，点击以太网查看信息&lt;/p&gt;
+
+&lt;p&gt;在更改适配器设置中，将连网的wifi共享给树莓派网络连接&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;查看树莓派连接的详细信息，记住ipv4地址&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;打开cmd，输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;arp -a&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;找到刚才记录的ipv4地址字段（192.168.137.x），若找不到树莓派ip（无同字段192.168.137.x），则需要设置静态ip地址。&lt;/p&gt;
+
+&lt;p&gt;重新将树莓派sd卡插入电脑，打开文件夹，修改cmdline.txt文件。&lt;/p&gt;
+
+&lt;p&gt;在最前端加上ip设置，注意设置同一网段192.168.137.x&lt;/p&gt;
+
+&lt;p&gt;修改后sd卡重新插回树莓派。启动，连网完毕后，重新查看接口信息&lt;/p&gt;
+
+&lt;h3 id=&quot;b-使用ssh远程控制&quot;&gt;b. 使用ssh远程控制&lt;/h3&gt;
+&lt;p&gt;使用ssh工具登录树莓派，默认用户名ip，默认密码raspberry&lt;/p&gt;
+
+&lt;p&gt;windows下可以使用putty&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-12.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;../images/2017/0511-13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果是第一次登录树莓派系统，输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ifconfig wlan() up&lt;/code&gt; 开启无线网卡&lt;/p&gt;
+
+&lt;p&gt;之后类似步骤，修改网络配置文件&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo su
+sudo editor /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;c-使用windows远程桌面控制树莓派&quot;&gt;c. 使用windows远程桌面控制树莓派&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;准备工作：&lt;/strong&gt;
+在树莓派中安装服务xrdp。命令行输入：&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install xrdp&lt;/code&gt;。连网后使用ifconfig查看网络信息，并记录树莓派ip地址&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;记住ip地址，打开远程桌面&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-15.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;../images/2017/0511-16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入密码，连接。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2017/0511-17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可能出现如图login成功，connecting失败的情况。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt; 在树莓派输入&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install tightvncserver&lt;/code&gt;并重启树莓派
+远程桌面连接成功
+&lt;img src=&quot;../images/2017/0511-17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;到此为止，SSH控制，远程桌面控制均已成功。以后有时间再试一下vnc远程控制&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="Raspberry" /><category term="Linux" /><summary type="html">刚入手树莓派3</summary></entry></feed>
